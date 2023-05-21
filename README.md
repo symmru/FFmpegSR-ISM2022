@@ -8,10 +8,7 @@ In this paper, we implement a framework, FFmpegSR, that applies deep learning ba
 N. Li and Y. Liu, "FFmpegSR: A General Framework Toward Real-Time 4K Super-Resolution," 2022 IEEE International Symposium on Multimedia (ISM), Italy, 2022, pp. 293-296, https://doi.org/10.1109/ISM55400.2022.10068833.
 
 ### Prerequist
-CUDA 10.2
-Libtorch 1.9.1
-cudnn 8.2.4
-FFmpeg 
+CUDA 10.2, Libtorch 1.9.1, cudnn 8.2.4 
 
 ### Installation
 1. clone this repo

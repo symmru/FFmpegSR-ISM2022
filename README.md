@@ -8,7 +8,8 @@ In this paper, we implement a framework, FFmpegSR, that applies deep learning ba
 N. Li and Y. Liu, "FFmpegSR: A General Framework Toward Real-Time 4K Super-Resolution," 2022 IEEE International Symposium on Multimedia (ISM), Italy, 2022, pp. 293-296, https://doi.org/10.1109/ISM55400.2022.10068833.
 
 ### Prerequist
-CUDA 10.2, Libtorch 1.9.1, cudnn 8.2.4 
+FFmpeg 4.4
+CUDA, Libtorch, cudnn
 
 ### Installation
 1. clone this repo
@@ -20,19 +21,20 @@ git clone https://github.com/symmru/FFmpegSR-ISM2022.git
 4. Replace the home directory in ``install.sh`` and run ``sudo install.sh`` 
 5. Clone the ffmpeg rep
 ```sh
-git clone https://github.com/FFmpeg/FFmpeg
+git clone -b release/4.4 https://github.com/FFmpeg/FFmpeg
 ```
 6. Copy the ``vf_edsr.c`` to ``FFmpeg/libavfilter`` directory
 7. Register the filter with FFmpeg. Add ``extern AVFilter ff_vf_edsr`` to ``libavfilter/allfilters.c``
 8. Add ``OBJS-$(CONFIG_EDSR_FILTER) += vf_edsr.o`` to ``libavfilter/Makefile``
 9. In the root FFmpeg directory, configure FFmpeg:
 ```sh
-./configure --enable-gpl --enable-nonfree --enable-libass --enable-libfdk-aac --enable-libfreetype --enable-libvpx --enable-libx264 --enable-libxvid --extra-libs='-lstdc++ -ledsr'
+./configure --enable-gpl --enable-libx264 --extra-libs='-lstdc++ -ledsr'
 ```
+Please also refer to https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu for further conpilation guide
 10. Directly add lib torch PATH into ``~./bashrc``:
 ```sh
 export LD_LIBRARY_PATH=$LD_LIBRART_PATH:/home/lina/libtorch/lib
-export PATH=$PATH:/home/lina/libtorch/bin'\
+export PATH=$PATH:/home/lina/libtorch/bin
 ```
 11. make FFmpeg with command ``make``
 12. Test with command

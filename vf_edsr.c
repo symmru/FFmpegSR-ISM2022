@@ -39,7 +39,7 @@ typedef struct EDSRContext {
 
 static int readLine(FILE* fp, char* buf, int size)
 {
-    char ch;
+    int ch;
     int count = 0;
     while(++count <= size && ((ch = getc(fp)) != '\n'))
     {

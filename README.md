@@ -1,13 +1,12 @@
-# FFmpegSR: A General Framework Torward Real-Time 4K Super-Resolution
+# [FFmpegSR: A General Framework Toward Real-Time 4K Super-Resolution](https://ieeexplore.ieee.org/abstract/document/10068833)
 
 
 
 ### Overview
-In this paper, we implement a framework, FFmpegSR, that applies deep learning based super resolution into an FFmpeg filter to implement real-time 4K super resolution. FFmpegSR applies super-resolution to Y channel only and develop a patch-based solution that uses saliency detection to select regions of interest on the video frame.
+With the explosive growth of online video content, the demand for high-quality video is ever-rising. To take advantage of recent advances in deep learning, in this paper, we propose and implement a framework, FFmpegSR, that applies deep learning-based super-resolution into an FFmpeg filter to implement real-time 4K video super-resolution. FFmpegSR applies super-resolution to the Y channel only, allowing reduced inference time while maintaining good inference quality. To further improve the inference speed, we also develop a patch-based solution that uses saliency detection to select regions of interest on the video frame. This allows us to achieve faster inference on key patches only instead of full video frames. We used videos from a public dataset for evaluation. Results show that FFmpegSR can achieve real-time super-resolution to 4K with high visual quality.
 
-N. Li and Y. Liu, "FFmpegSR: A General Framework Toward Real-Time 4K Super-Resolution," 2022 IEEE International Symposium on Multimedia (ISM), Italy, 2022, pp. 293-296, https://doi.org/10.1109/ISM55400.2022.10068833.
 
-### Prerequist
+### Prerequisite
 FFmpeg 4.4
 CUDA, Libtorch, cudnn
 
@@ -51,8 +50,18 @@ export PATH=$PATH:/home/lina/libtorch/bin
 In ``edsr`` filter, **width** and **height** stands for the resolution of input video frame. **patch_with** and **patch_height** stands for the resolution of patch frame. Our default setting is 6x6 grid per frame.  **file_path** stands for the patch information that need to apply super resolution. **model_path** is the traced model with ``torchscript``.
 
 
-## License
+## Citations
 
-MIT
+If you find our code or paper helps, please consider citing:
+```sh
+@inproceedings{li2022ffmpegsr,
+  title={FFmpegSR: A General Framework Toward Real-Time 4K Super-Resolution},
+  author={Li, Na and Liu, Yao},
+  booktitle={2022 IEEE International Symposium on Multimedia (ISM)},
+  pages={293--296},
+  year={2022},
+  organization={IEEE}
+}
+```
 
 
